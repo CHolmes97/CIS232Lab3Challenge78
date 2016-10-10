@@ -21,7 +21,7 @@ public class Coder
 		outputFileName = outputFile;
 	}
 	
-	//Adds two to each characters unicode value
+	//Adds two to each character's character code
 	public void encode()
 	{
 		File file = new File(fileName);
@@ -41,7 +41,7 @@ public class Coder
 				message += inputFile.nextLine();
 			}
 			
-			//Goes through the string character by character, adding two to each letters unicode value
+			//Goes through the string character by character, adding two to each letters character code
 			for (int i = 0; i < message.length(); i++)
 			{
 				letter = message.charAt(i);
@@ -66,7 +66,7 @@ public class Coder
 		
 	}
 	
-	//Goes through an encoded file and decodes it, subtracting two from a letter's unicode value
+	//Goes through an encoded file and decodes it, subtracting two from a letter's character code
 	public void decode()
 	{
 		File file = new File(fileName);
