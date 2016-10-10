@@ -1,11 +1,10 @@
 package cis232lab3;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class MainApplication7 {
 
-	public static void main(String[] args) throws IOException 
+	public static void main(String[] args) 
 	{
 		Scanner keyboard = new Scanner(System.in);
 		

@@ -1,6 +1,5 @@
 package cis232lab3;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class MainApplication8 {
@@ -17,14 +16,8 @@ public class MainApplication8 {
 		
 		Coder decoder = new Coder(fileName, outputFileName);
 		
-		try 
-		{
-			decoder.decode();
-		} catch (IOException e) 
-		{
-			System.out.println("An error has occurred");
-		}
 		
+		decoder.decode();
 		keyboard.close();
 	}
 

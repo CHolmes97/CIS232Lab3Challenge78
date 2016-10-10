@@ -14,20 +14,69 @@ public class Coder
 	private String codedMessage = "";
 	private String decodedMessage = "";
 	
+	//Creates object
 	public Coder(String fileName, String outputFile)
 	{
 		this.fileName = fileName;
 		outputFileName = outputFile;
 	}
 	
+	//Adds two to each characters unicode value
 	public void encode()
 	{
 		File file = new File(fileName);
 		File outputFile = new File(outputFileName);
 		Scanner inputFile;
+		
+		//Try catch for if the file isn't found
 		try {
 			inputFile = new Scanner(file);
 			PrintWriter output = new PrintWriter(outputFile);
+			
+			//Reads through the entire text file
+			while(inputFile.hasNextLine())
+			{
+				message += inputFile.nextLine();
+			}
+			
+			//Goes through the string character by character, adding two to each letters unicode value
+			for (int i = 0; i < message.length(); i++)
+			{
+				letter = message.charAt(i);
+				
+				letter = (char) (letter + 2);
+				
+				codedMessage += letter;
+			}
+			
+			//Test message for if it worked
+			System.out.println(message);
+			System.out.println(codedMessage);
+			output.println(codedMessage);
+			
+			//Closing the files so it works
+			inputFile.close();
+			output.close();
+		} catch (FileNotFoundException e) 
+		{
+			System.out.println("File not found, please try again");
+		}
+		
+	}
+	
+	//Goes through an encoded file and decodes it, subtracting two from a letter's unicode value
+	public void decode()
+	{
+		File file = new File(fileName);
+		File outputFile = new File(outputFileName);
+		Scanner inputFile;
+		
+		//Mostly the same as encode, but with different variable names and instead subtracts two
+		try 
+		{
+			inputFile = new Scanner(file);
+			PrintWriter output = new PrintWriter(outputFile);
+			message = "";
 			
 			while(inputFile.hasNextLine())
 			{
@@ -38,51 +87,21 @@ public class Coder
 			{
 				letter = message.charAt(i);
 				
-				letter = (char) (letter + 2);
+				letter = (char) (letter - 2);
 				
-				codedMessage += letter;
+				decodedMessage += letter;
 			}
 			
 			System.out.println(message);
-			System.out.println(codedMessage);
-			output.println(codedMessage);
+			System.out.println(decodedMessage);
+			output.println(decodedMessage);
 			
 			inputFile.close();
 			output.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("File not found, please try again");
-		}
-		
-	}
-	
-	public void decode() throws FileNotFoundException
-	{
-		File file = new File(fileName);
-		File outputFile = new File(outputFileName);
-		Scanner inputFile = new Scanner(file);
-		PrintWriter output = new PrintWriter(outputFile);
-		message = "";
-		
-		while(inputFile.hasNextLine())
+		} catch (FileNotFoundException e) 
 		{
-			message += inputFile.nextLine();
+			System.out.println("File not found");
 		}
 		
-		for (int i = 0; i < message.length(); i++)
-		{
-			letter = message.charAt(i);
-			
-			letter = (char) (letter - 2);
-			
-			decodedMessage += letter;
-		}
-		
-		System.out.println(message);
-		System.out.println(decodedMessage);
-		output.println(decodedMessage);
-		
-		inputFile.close();
-		output.close();
 	}
 }
