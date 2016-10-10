@@ -2,6 +2,7 @@ package cis232lab3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -32,6 +33,8 @@ public class Coder
 		try {
 			inputFile = new Scanner(file);
 			PrintWriter output = new PrintWriter(outputFile);
+			message = "";
+			codedMessage = "";
 			
 			//Reads through the entire text file
 			while(inputFile.hasNextLine())
@@ -77,6 +80,7 @@ public class Coder
 			inputFile = new Scanner(file);
 			PrintWriter output = new PrintWriter(outputFile);
 			message = "";
+			decodedMessage = "";
 			
 			while(inputFile.hasNextLine())
 			{
@@ -102,6 +106,7 @@ public class Coder
 		{
 			System.out.println("File not found");
 		}
+		
 		
 	}
 }
