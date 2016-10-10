@@ -24,7 +24,8 @@ public class MainApplication8 {
 		{
 			System.out.println("An error has occurred");
 		}
-
+		
+		keyboard.close();
 	}
 
 }

@@ -18,6 +18,7 @@ public class MainApplication7 {
 		Coder coder = new Coder(fileName, outputFileName);
 		
 		coder.encode();
+		keyboard.close();
 	}
 
 }
